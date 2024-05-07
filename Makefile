@@ -1,7 +1,10 @@
 
 build:
 	echo "Building build"
-	go build -o build/
+	go build -o build/ ./cmd
+
+build-alpine:
+	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o build/ ./cmd
 
 clean:
 	rm -rf build
